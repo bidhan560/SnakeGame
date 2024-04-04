@@ -11,7 +11,7 @@ class SnakeGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Snake Game',
+      debugShowCheckedModeBanner: false,
       home: SnakeGameScreen(),
     );
   }
@@ -74,7 +74,7 @@ class _SnakeGameScreenState extends State<SnakeGameScreen> {
         break;
     }
     snake.insert(0, newHead);
-    if (newHead != food) {
+    if (newHead!= food) {
       snake.removeLast();
     } else {
       score += 10;
@@ -100,10 +100,10 @@ class _SnakeGameScreenState extends State<SnakeGameScreen> {
   }
 
   void handleTap(Direction newDirection) {
-    if ((direction == Direction.up && newDirection != Direction.down) ||
-        (direction == Direction.down && newDirection != Direction.up) ||
-        (direction == Direction.left && newDirection != Direction.right) ||
-        (direction == Direction.right && newDirection != Direction.left)) {
+    if ((direction == Direction.up && newDirection!= Direction.down) ||
+        (direction == Direction.down && newDirection!= Direction.up) ||
+        (direction == Direction.left && newDirection!= Direction.right) ||
+        (direction == Direction.right && newDirection!= Direction.left)) {
       direction = newDirection;
     }
   }
@@ -119,7 +119,7 @@ class _SnakeGameScreenState extends State<SnakeGameScreen> {
               width: gridSize.toDouble(),
               height: gridSize.toDouble(),
               decoration: BoxDecoration(
-                color: Colors.blue, // Change color to blue
+                color: Colors.blue,
                 shape: BoxShape.circle,
               ),
             ),
